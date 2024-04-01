@@ -1,4 +1,4 @@
-package entities;
+package Entities;
 
 import java.util.Date;
 import java.util.List;
@@ -15,14 +15,42 @@ public class Offer {
     private Status status;
     private String fileName;
     private List<Skill> skills;
-    // Constructor
-    public Offer() {
+    // default Constructor
+    public Offer(int id, String title, String description, String author, Date createdAt, Motive motive, Type type, Location location, Status status, String fileName, List<Skill> skills) {
     }
+   //onstructor with id parameter
+    public Offer(Integer id, String title, String description, String author, Date createdAt, Motive motive, Type type, Location location, Status status, String fileName) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+        this.author = author;
+        this.createdAt = createdAt;
+        this.motive = motive;
+        this.type = type;
+        this.location = location;
+        this.status = status;
+        this.fileName = fileName;
+        this.skills = skills;
+    }
+
+    // Constructor without id parameter
+    public Offer(String title, String description, String author, Date createdAt, Motive motive, Type type, Location location, Status status, String fileName, List<Skill> skills) {
+        this.title = title;
+        this.description = description;
+        this.author = author;
+        this.createdAt = createdAt;
+        this.motive = motive;
+        this.type = type;
+        this.location = location;
+        this.status = status;
+        this.fileName = fileName;
+        this.skills = skills;
+    }
+
     // Getters and setters
     public Integer getId() {
         return id;
     }
-
     public void setId(Integer id) {
         this.id = id;
     }
@@ -90,6 +118,13 @@ public class Offer {
     public void setStatus(Status status) {
         this.status = status;
     }
+    public String getFileName() {
+        return fileName;
+    }
+
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
+    }
     public List<Skill> getSkills() {
         return skills;
     }
@@ -97,13 +132,14 @@ public class Offer {
     public void setSkills(List<Skill> skills) {
         this.skills = skills;
     }
-
-    public String getFileName() {
-        return fileName;
+    // Method to add a skill to the offer
+    public void addSkill(Skill skill) {
+        this.skills.add(skill);
     }
 
-    public void setFileName(String fileName) {
-        this.fileName = fileName;
+    // Method to remove a skill from the offer
+    public void removeSkill(Skill skill) {
+        this.skills.remove(skill);
     }
 }
 
