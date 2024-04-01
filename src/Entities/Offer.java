@@ -8,15 +8,15 @@ public class Offer {
     private String title;
     private String description;
     private String author;
-    private Date createdAt;
+    private Date created_at;
     private Motive motive;
     private Type type;
     private Location location;
     private Status status;
-    private String fileName;
+    private String file_name;
     private List<Skill> skills;
     // default Constructor
-    public Offer(int id, String title, String description, String author, Date createdAt, Motive motive, Type type, Location location, Status status, String fileName, List<Skill> skills) {
+    public Offer() {
     }
    //onstructor with id parameter
     public Offer(Integer id, String title, String description, String author, Date createdAt, Motive motive, Type type, Location location, Status status, String fileName) {
@@ -24,12 +24,12 @@ public class Offer {
         this.title = title;
         this.description = description;
         this.author = author;
-        this.createdAt = createdAt;
+        this.created_at = created_at;
         this.motive = motive;
         this.type = type;
         this.location = location;
         this.status = status;
-        this.fileName = fileName;
+        this.file_name = file_name;
         this.skills = skills;
     }
 
@@ -38,12 +38,12 @@ public class Offer {
         this.title = title;
         this.description = description;
         this.author = author;
-        this.createdAt = createdAt;
+        this.created_at = created_at;
         this.motive = motive;
         this.type = type;
         this.location = location;
         this.status = status;
-        this.fileName = fileName;
+        this.file_name = file_name;
         this.skills = skills;
     }
 
@@ -79,12 +79,12 @@ public class Offer {
         this.author = author;
     }
 
-    public Date getCreatedAt() {
-        return createdAt;
+    public Date getCreated_at() {
+        return created_at;
     }
 
-    public void setCreatedAt(Date createdAt) {
-        this.createdAt = createdAt;
+    public void setCreated_at(Date created_at) {
+        this.created_at = created_at;
     }
 
     public Motive getMotive() {
@@ -118,12 +118,12 @@ public class Offer {
     public void setStatus(Status status) {
         this.status = status;
     }
-    public String getFileName() {
-        return fileName;
+    public String getFile_name() {
+        return file_name;
     }
 
-    public void setFileName(String fileName) {
-        this.fileName = fileName;
+    public void setFile_name(String file_name) {
+        this.file_name = file_name;
     }
     public List<Skill> getSkills() {
         return skills;
@@ -140,6 +140,23 @@ public class Offer {
     // Method to remove a skill from the offer
     public void removeSkill(Skill skill) {
         this.skills.remove(skill);
+    }
+
+    @Override
+    public String toString() {
+        return "Offer{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", author='" + author + '\'' +
+                ", created_at=" + created_at +
+                ", motive=" + motive +
+                ", type=" + type +
+                ", location=" + location +
+                ", status=" + status +
+                ", file_name='" + file_name + '\'' +
+                ", skills=" + skills +
+                '}';
     }
 }
 
