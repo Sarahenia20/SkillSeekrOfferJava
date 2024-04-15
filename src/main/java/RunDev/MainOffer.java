@@ -16,9 +16,9 @@ import Utils.OfferInputValidation;
 public class MainOffer {
     public static void main(String[] args) {
         Offer offer = new Offer();
-        offer.setTitle("Package1");
-        offer.setDescription("Explore the depths of a mysterious forest filled with secrets and magic of JAVA such as maven dependancy and shit becuase jadore le java Pi");
-        offer.setAuthor("sarah_henia");
+        offer.setTitle("Wiem");
+        offer.setDescription("Explore the depths of a mysterious forest filled with secrets and magic of JAVA such as maven dependancy and shit becuase jadore le java Pi aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+        offer.setAuthor("sarah.henia@esprit.tn");
         offer.setCreated_at(new Date());
         offer.setMotive(Motive.Beta);
         offer.setType(Type.Mission);

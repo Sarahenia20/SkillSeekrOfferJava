@@ -1,5 +1,4 @@
 package Entities.Offers;
-
 import java.util.Date;
 import java.util.List;
 
@@ -15,10 +14,11 @@ public class Offer {
     private Status status;
     private String file_name;
     private List<Skill> skills;
+
     // default Constructor
     public Offer() {
     }
-   //onstructor with id parameter
+   //Constructor with id parameter
     public Offer(Integer id, String title, String description, String author, Date createdAt, Motive motive, Type type, Location location, Status status, String fileName) {
         this.id = id;
         this.title = title;

@@ -1,5 +1,6 @@
 package Utils;
 
+
 import Entities.Offers.Offer;
 import Entities.Offers.Skill;
 import javax.mail.internet.AddressException;
@@ -14,9 +15,9 @@ public class OfferInputValidation {
         if (offer.getTitle() == null) {
             return "Title cannot be empty";
         } else if (!validateTitle(offer.getTitle())) {
-            return "Title must be at most 150 characters long";
+            return "Title must be at most 100 characters long";
         } else if (!validateDescription(offer.getDescription())) {
-            return "Description must be at least 100 characters long";
+            return "Description must be at least 150 characters long";
         } else if (!validateAuthor(offer.getAuthor())) {
             return "Invalid author email address";
         } else if (!validateCreatedAt(offer.getCreated_at())) {
@@ -38,12 +39,12 @@ public class OfferInputValidation {
 
     // Validate title: Max 100 characters long
     private static boolean validateTitle(String title) {
-        return title.length() <= 150;
+        return title.length() <= 100;
     }
 
     // Validate description: At least 100 characters long
     private static boolean validateDescription(String description) {
-        return description.length() >= 100;
+        return description.length() >= 150;
     }
 
     // Validate author: Should be a valid email address
@@ -59,8 +60,9 @@ public class OfferInputValidation {
 
     // Validate createdAt: Should not be in the past
     private static boolean validateCreatedAt(Date createdAt) {
-        return createdAt.after(new Date());
+        return createdAt.compareTo(new Date()) <= 0;
     }
+
 
     // Validate skills: At least one skill selected
     private static boolean validateSkills(List<Skill> skills) {

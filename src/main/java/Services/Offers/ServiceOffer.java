@@ -164,7 +164,7 @@ public class ServiceOffer implements IServices<Offer> {
         return offers;
     }
 
-
+    //add show one Offer for the cards
 
     // Method to retrieve skills associated with an offer from the database
     private List<Skill> retrieveSkills(int id) throws SQLException {
