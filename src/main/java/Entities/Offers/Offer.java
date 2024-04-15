@@ -1,4 +1,4 @@
-package Entities;
+package Entities.Offers;
 
 import java.util.Date;
 import java.util.List;

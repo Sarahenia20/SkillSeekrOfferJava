@@ -1,4 +1,4 @@
-package Entities;
+package Entities.Offers;
 
 public enum Location {
     Remote,

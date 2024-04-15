@@ -1,16 +1,15 @@
-package Services;
+package Services.Offers;
 
+import Services.IServices;
 import Utils.MyJDBC;
-import Entities.Offer;
-import Entities.Motive;
-import Entities.Type;
-import Entities.Location;
-import Entities.Status;
-import Entities.Skill;
-
+import Entities.Offers.Offer;
+import Entities.Offers.Motive;
+import Entities.Offers.Type;
+import Entities.Offers.Location;
+import Entities.Offers.Status;
+import Entities.Offers.Skill;
 import java.util.List;
 import java.util.ArrayList;
-import java.util.Date;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.ResultSet;
