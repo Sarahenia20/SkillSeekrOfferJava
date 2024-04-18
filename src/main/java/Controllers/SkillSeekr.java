@@ -55,7 +55,7 @@ public class SkillSeekr implements Initializable {
         } else if (mouseEvent.getSource() == btnOffers) {
             loadStage("/home/fxml/Students.fxml");
         } else if (mouseEvent.getSource() == btn_Timetable) {
-            loadStage("/home/fxml/Timetable.fxml");
+            loadStage("/");
 
         } else if (mouseEvent.getSource() == btnClaims) {
         loadStage("/home/fxml/Timetable.fxml");

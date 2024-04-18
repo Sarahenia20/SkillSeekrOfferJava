@@ -10,7 +10,7 @@ public class MainRecrutement {
     public static void main(String[] args) {
         Recrutement recrutement = new Recrutement();
         recrutement.setDate(new Date());
-        recrutement.setTitre("Recrutement");
+        recrutement.setTitre("Controllers/Recrutement");
         recrutement.setDescription("Approved");
         recrutement.setStatut("Approved");
 
