@@ -117,17 +117,16 @@ public class ServiceOffer implements IServices<Offer> {
 
     @Override
     public void delete(Offer offer) throws SQLException {
-        String query = "DELETE FROM offer WHERE id = ?";
-        PreparedStatement preparedStatement = null;
-        try {
-            preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setInt(1, offer.getId());
-            preparedStatement.executeUpdate();
-        } finally {
-            // Close the PreparedStatement
-            if (preparedStatement != null) {
-                preparedStatement.close();
-            }
+        String deleteOfferSkillsQuery = "DELETE FROM offer_skills WHERE id = ?";
+        try (PreparedStatement deleteOfferSkillsStatement = connection.prepareStatement(deleteOfferSkillsQuery)) {
+            deleteOfferSkillsStatement.setInt(1, offer.getId());
+            deleteOfferSkillsStatement.executeUpdate();
+        }
+
+        String deleteOfferQuery = "DELETE FROM offer WHERE id = ?";
+        try (PreparedStatement deleteOfferStatement = connection.prepareStatement(deleteOfferQuery)) {
+            deleteOfferStatement.setInt(1, offer.getId());
+            deleteOfferStatement.executeUpdate();
         }
     }
     @Override
