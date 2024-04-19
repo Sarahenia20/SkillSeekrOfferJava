@@ -1,14 +1,11 @@
 package Utils;
 
-
 import Models.Offers.Offer;
-import Models.Offers.Skill;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import java.util.Date;
-import java.util.List;
 
-public class OfferInputValidation {
+public class NoSkills {
 
     // Validate all fields except file: Not null
     public static String validateAllFieldsNotNull(Offer offer) {
@@ -30,8 +27,6 @@ public class OfferInputValidation {
             return "Location cannot be empty";
         } else if (offer.getStatus() == null) {
             return "Status cannot be empty";
-        } else if (!validateSkills(offer.getSkills())) {
-            return "At least one skill must be selected";
         } else {
             return null; // Validation passed
         }
@@ -61,11 +56,5 @@ public class OfferInputValidation {
     // Validate createdAt: Should not be in the past
     private static boolean validateCreatedAt(Date createdAt) {
         return createdAt.compareTo(new Date()) <= 0;
-    }
-
-
-    // Validate skills: At least one skill selected
-    private static boolean validateSkills(List<Skill> skills) {
-        return skills != null && !skills.isEmpty();
     }
 }

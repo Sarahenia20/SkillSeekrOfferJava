@@ -1,7 +1,7 @@
-package Services.Recruitement;
+package Services.Hire;
 import Services.IServices;
 import Utils.MyJDBC;
-import Entities.Recruitement.Entretient;
+import Models.Hire.Entretient;
 import java.sql.*;
 import java.sql.SQLException;
 import java.sql.Statement;

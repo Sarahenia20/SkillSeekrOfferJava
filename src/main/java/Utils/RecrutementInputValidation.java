@@ -1,6 +1,6 @@
 package Utils;
 
-import Entities.Recruitement.Recrutement;
+import Models.Hire.Recrutement;
 import java.util.Date;
 
 public class RecrutementInputValidation {

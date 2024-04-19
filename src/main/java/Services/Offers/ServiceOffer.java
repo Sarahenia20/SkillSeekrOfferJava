@@ -2,12 +2,12 @@ package Services.Offers;
 
 import Services.IServices;
 import Utils.MyJDBC;
-import Entities.Offers.Offer;
-import Entities.Offers.Motive;
-import Entities.Offers.Type;
-import Entities.Offers.Location;
-import Entities.Offers.Status;
-import Entities.Offers.Skill;
+import Models.Offers.Offer;
+import Models.Offers.Motive;
+import Models.Offers.Type;
+import Models.Offers.Location;
+import Models.Offers.Status;
+import Models.Offers.Skill;
 import java.util.List;
 import java.util.ArrayList;
 import java.sql.SQLException;
@@ -142,12 +142,12 @@ public class ServiceOffer implements IServices<Offer> {
                 offer.setTitle(resultSet.getString("title"));
                 offer.setDescription(resultSet.getString("description"));
                 offer.setAuthor(resultSet.getString("author"));
-                offer.setCreated_at(resultSet.getDate("createdAt"));
+                offer.setCreated_at(resultSet.getDate("created_at"));
                 offer.setMotive(Motive.valueOf(resultSet.getString("motive")));
                 offer.setType(Type.valueOf(resultSet.getString("type")));
                 offer.setLocation(Location.valueOf(resultSet.getString("location")));
                 offer.setStatus(Status.valueOf(resultSet.getString("status")));
-                offer.setFile_name(resultSet.getString("fileName"));
+                offer.setFile_name(resultSet.getString("file_name"));
 
                 // Retrieve skills for the current offer
                 List<Skill> skills = retrieveSkills(offer.getId());

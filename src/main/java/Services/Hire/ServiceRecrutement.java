@@ -1,5 +1,5 @@
-package Services.Recruitement;
-import Entities.Recruitement.Recrutement;
+package Services.Hire;
+import Models.Hire.Recrutement;
 import Services.IServices;
 import Utils.MyJDBC;
 import java.sql.*;

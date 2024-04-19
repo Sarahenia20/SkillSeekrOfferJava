@@ -1,6 +1,5 @@
 package Utils;
-
-import Entities.Recruitement.Entretient;
+import Models.Hire.Entretient;
 import java.util.Date;
 
 public class EntretientInputValidation {
