@@ -30,7 +30,6 @@
                     <image>
                         <Image url="@images/SSWhite.png" />
                     </image></ImageView>
-
             </children>
         </Pane>
         <GridPane alignment="CENTER" hgap="10.0" layoutX="165.0" layoutY="228.0" prefHeight="320.0" prefWidth="650.0" vgap="10.0" AnchorPane.leftAnchor="165.0" AnchorPane.rightAnchor="165.0">
