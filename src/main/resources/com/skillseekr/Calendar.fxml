@@ -49,7 +49,7 @@
                           <Font size="22.0" />
                       </font>
                   </Text>
-                  <Button fx:id="forwardButton" mnemonicParsing="false" onAction="#backOneMonth" text="&gt;" />
+                  <Button fx:id="forwardButton" mnemonicParsing="false" onAction="#forwardOneMonth" text="&gt;" />
               </children>
           </HBox>
           <HBox alignment="CENTER" prefHeight="44.0" prefWidth="716.0" spacing="88.75">

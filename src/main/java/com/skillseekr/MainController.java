@@ -42,6 +42,15 @@ public class MainController {
         else if ((mouseEvent.getSource() == btnCalendar)) {
             loadStage("/com/Skillseekr/Calendar.fxml");
         }
+        else if ((mouseEvent.getSource() == btnClaims)) {
+            loadStage("/com/Skillseekr/Claims/Claims.fxml");
+        }
+        else if ((mouseEvent.getSource() == btnProjects)) {
+            loadStage("/com/Skillseekr/Projects/Projects.fxml");
+        }
+        else if ((mouseEvent.getSource() == btnUsers)) {
+            loadStage("/com/Skillseekr/User/User.fxml");
+        }
     }
 
     private void loadStage(String fxml) {

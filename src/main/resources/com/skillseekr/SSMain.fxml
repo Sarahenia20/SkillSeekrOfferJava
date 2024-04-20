@@ -59,12 +59,12 @@
                         <FontAwesomeIcon fill="#2d75e8" glyphName="CALENDAR" size="50" />
                     </graphic>
                 </Button>
-                <Button fx:id="btnClaims" contentDisplay="TOP" mnemonicParsing="false" prefHeight="181.0" prefWidth="242.0" stylesheets="@style.css" text="CLAIMS" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                <Button fx:id="btnClaims" contentDisplay="TOP" mnemonicParsing="false" onAction="#handleButtonClicks" prefHeight="181.0" prefWidth="242.0" stylesheets="@style.css" text="CLAIMS" GridPane.columnIndex="2" GridPane.rowIndex="1">
                     <graphic>
                         <FontAwesomeIcon fill="#2d75e8" glyphName="COMMENT" size="50" />
                     </graphic>
                 </Button>
-                <Button fx:id="btnProjects" contentDisplay="TOP" mnemonicParsing="false" prefHeight="181.0" prefWidth="242.0" stylesheets="@style.css" text="PROJECTS" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                <Button fx:id="btnProjects" contentDisplay="TOP" mnemonicParsing="false" onAction="#handleButtonClicks" prefHeight="181.0" prefWidth="242.0" stylesheets="@style.css" text="PROJECTS" GridPane.columnIndex="1" GridPane.rowIndex="1">
                     <graphic>
                         <FontAwesomeIcon fill="#2d75e8" glyphName="EXCHANGE" size="50" />
                     </graphic>
