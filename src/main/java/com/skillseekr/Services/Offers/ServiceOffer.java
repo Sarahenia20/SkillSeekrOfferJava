@@ -1,13 +1,13 @@
-package Services.Offers;
+package com.skillseekr.Services.Offers;
 
-import Services.IServices;
-import Utils.MyJDBC;
-import Models.Offers.Offer;
-import Models.Offers.Motive;
-import Models.Offers.Type;
-import Models.Offers.Location;
-import Models.Offers.Status;
-import Models.Offers.Skill;
+import com.skillseekr.Services.IServices;
+import com.skillseekr.Utils.MyJDBC;
+import com.skillseekr.Models.Offers.Offer;
+import com.skillseekr.Models.Offers.Motive;
+import com.skillseekr.Models.Offers.Type;
+import com.skillseekr.Models.Offers.Location;
+import com.skillseekr.Models.Offers.Status;
+import com.skillseekr.Models.Offers.Skill;
 import java.util.List;
 import java.util.ArrayList;
 import java.sql.SQLException;

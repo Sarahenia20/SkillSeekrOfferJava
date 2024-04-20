@@ -180,9 +180,9 @@
                             </HBox>
 
                         </children>
-                  <opaqueInsets>
-                     <Insets />
-                  </opaqueInsets>
+                        <opaqueInsets>
+                            <Insets />
+                        </opaqueInsets>
                     </VBox>
                 </Pane>
             </content>

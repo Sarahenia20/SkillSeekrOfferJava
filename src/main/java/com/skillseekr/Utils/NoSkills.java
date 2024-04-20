@@ -1,6 +1,6 @@
-package Utils;
+package com.skillseekr.Utils;
 
-import Models.Offers.Offer;
+import com.skillseekr.Models.Offers.Offer;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import java.util.Date;

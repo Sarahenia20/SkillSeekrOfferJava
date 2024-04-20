@@ -1,4 +1,4 @@
-package Services;
+package com.skillseekr.Services;
 
 import java.sql.SQLException;
 import java.util.List;

@@ -1,7 +1,7 @@
-package Services.Hire;
-import Services.IServices;
-import Utils.MyJDBC;
-import Models.Hire.Entretient;
+package com.skillseekr.Services.Hire;
+import com.skillseekr.Services.IServices;
+import com.skillseekr.Utils.MyJDBC;
+import com.skillseekr.Models.Hire.Entretient;
 import java.sql.*;
 import java.sql.SQLException;
 import java.sql.Statement;

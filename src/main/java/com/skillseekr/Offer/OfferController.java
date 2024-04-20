@@ -10,9 +10,9 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.ResourceBundle;
-import Models.Offers.Offer;
-import Services.Offers.ServiceOffer;
-import Models.Offers.Skill;
+import com.skillseekr.Models.Offers.Offer;
+import com.skillseekr.Services.Offers.ServiceOffer;
+import com.skillseekr.Models.Offers.Skill;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.scene.control.ContextMenu;
 

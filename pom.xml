@@ -75,8 +75,14 @@
             <artifactId>mail</artifactId>
             <version>1.5.0-b01</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/com.calendarfx/calendar -->
+        <dependency>
+            <groupId>com.calendarfx</groupId>
+            <artifactId>calendar</artifactId>
+            <version>11.9.0</version>
+            <type>pom</type>
+        </dependency>
     </dependencies>
-
     <build>
         <plugins>
             <plugin>

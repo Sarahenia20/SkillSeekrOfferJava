@@ -1,5 +1,5 @@
-package Utils;
-import Models.Hire.Entretient;
+package com.skillseekr.Utils;
+import com.skillseekr.Models.Hire.Entretient;
 import java.util.Date;
 
 public class EntretientInputValidation {

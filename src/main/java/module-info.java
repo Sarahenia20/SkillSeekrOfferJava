@@ -11,8 +11,8 @@ module com.skillseekr {
     opens com.skillseekr.Offer to javafx.fxml;
     opens com.skillseekr.Hire to javafx.fxml;// Opening the com.skillseekr.Offer package
 
-    opens Models.Offers to javafx.base;
-    opens Models.Hire to javafx.base;// Opening the Models.Offers package to javafx.base
+    opens com.skillseekr.Models.Offers to javafx.base;
+    opens com.skillseekr.Models.Hire to javafx.base;// Opening the com.skillseekr.Models.Offers package to javafx.base
 
     exports com.skillseekr;
 }

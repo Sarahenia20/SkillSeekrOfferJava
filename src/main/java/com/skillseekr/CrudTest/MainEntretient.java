@@ -1,8 +1,8 @@
-package CrudTest;
+package com.skillseekr.CrudTest;
 
-import Models.Hire.Entretient;
-import Services.Hire.ServiceEntretient;
-import Utils.EntretientInputValidation;
+import com.skillseekr.Models.Hire.Entretient;
+import com.skillseekr.Services.Hire.ServiceEntretient;
+import com.skillseekr.Utils.EntretientInputValidation;
 import java.util.Date;
 import java.sql.SQLException;
 

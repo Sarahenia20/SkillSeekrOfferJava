@@ -1,4 +1,4 @@
-package Models.Hire;
+package com.skillseekr.Models.Hire;
 import java.util.Date;
 
 public class Recrutement {

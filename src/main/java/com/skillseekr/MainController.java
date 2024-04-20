@@ -39,6 +39,9 @@ public class MainController {
         } else if ((mouseEvent.getSource() == btnHire)) {
             loadStage("/com/Skillseekr/Hire/Recrutement.fxml");
         }
+        else if ((mouseEvent.getSource() == btnCalendar)) {
+            loadStage("/com/Skillseekr/Calendar.fxml");
+        }
     }
 
     private void loadStage(String fxml) {

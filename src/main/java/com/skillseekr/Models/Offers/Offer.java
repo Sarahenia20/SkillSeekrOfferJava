@@ -1,4 +1,4 @@
-package Models.Offers;
+package com.skillseekr.Models.Offers;
 import java.util.Date;
 import java.util.List;
 

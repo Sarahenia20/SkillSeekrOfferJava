@@ -1,8 +1,8 @@
-package CrudTest;
+package com.skillseekr.CrudTest;
 
-import Models.Hire.Recrutement;
-import Services.Hire.ServiceRecrutement;
-import Utils.RecrutementInputValidation;
+import com.skillseekr.Models.Hire.Recrutement;
+import com.skillseekr.Services.Hire.ServiceRecrutement;
+import com.skillseekr.Utils.RecrutementInputValidation;
 import java.util.Date;
 import java.sql.SQLException;
 

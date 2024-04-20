@@ -1,17 +1,17 @@
-package CrudTest;
+package com.skillseekr.CrudTest;
 
-import Models.Offers.Offer;
-import Models.Offers.Skill;
-import Models.Offers.Motive;
-import Models.Offers.Type;
-import Models.Offers.Location;
-import Models.Offers.Status;
-import Services.Offers.ServiceOffer;
+import com.skillseekr.Models.Offers.Offer;
+import com.skillseekr.Models.Offers.Skill;
+import com.skillseekr.Models.Offers.Motive;
+import com.skillseekr.Models.Offers.Type;
+import com.skillseekr.Models.Offers.Location;
+import com.skillseekr.Models.Offers.Status;
+import com.skillseekr.Services.Offers.ServiceOffer;
 import java.util.Date;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import Utils.NoSkills;
+import com.skillseekr.Utils.NoSkills;
 
 public class MainOffer {
     public static void main(String[] args) {

@@ -3,6 +3,17 @@
 .btnGreen{
     -fx-background-color:  #3cbc53;
 }
+.list-cell {
+    -fx-background-color: #f0f0f0; /* Background color */
+    -fx-text-fill: #333; /* Text color */
+    -fx-padding: 10px; /* Padding */
+}
+
+.list-cell:hover {
+    -fx-background-color: #ddd; /* Background color on hover */
+}
+
+/* Add more styling as needed */
 
 .background{
     -fx-background-color: #2D75E8;

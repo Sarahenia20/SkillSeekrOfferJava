@@ -1,6 +1,6 @@
-package Utils;
+package com.skillseekr.Utils;
 
-import Models.Hire.Recrutement;
+import com.skillseekr.Models.Hire.Recrutement;
 import java.util.Date;
 
 public class RecrutementInputValidation {

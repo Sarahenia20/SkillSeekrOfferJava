@@ -1,4 +1,4 @@
-package Models.Offers;
+package com.skillseekr.Models.Offers;
 
 public enum Status {
     Draft,
