@@ -1,15 +1,23 @@
 package com.skillseekr.User;
 
+
 import javafx.fxml.FXML;
-import javafx.scene.layout.FlowPane;
-import javafx.scene.layout.GridPane;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.layout.AnchorPane;
+
+import java.io.IOException;
 
 public class UserController {
+    @FXML
+    private AnchorPane contentPane;
 
     @FXML
-    private FlowPane calendar;
-
-    @FXML
-    private GridPane pnlHost;
-
+    private void handleUsersButtonClick() {
+        try {
+            AnchorPane showUserPane = FXMLLoader.load(getClass().getResource("/com/Skillseekr/User/User.fxml"));
+            contentPane.getChildren().setAll(showUserPane);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

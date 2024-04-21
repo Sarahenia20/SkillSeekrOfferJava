@@ -1,191 +1,101 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.ContextMenu?>
-<?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TableColumn?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.DatePicker?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.RadioButton?>
-<?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="563.0" prefWidth="1102.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.skillseekr.Offer.OfferController">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="623.0" prefWidth="1271.0" style="-fx-background-color: #fff;" stylesheets="@../styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.skillseekr.Offer.OfferController">
     <children>
-        <Pane prefHeight="173.0" prefWidth="980.0" style="-fx-background-color: #2D75E8;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <Pane layoutX="-8.0" prefHeight="313.0" prefWidth="1279.0" style="-fx-background-color: #4490de;" styleClass="sidebar" AnchorPane.leftAnchor="-8.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
-                <Label layoutX="94.0" layoutY="35.0" text="OFFERS" textFill="WHITE">
+                <Text fill="#9dceee" layoutX="335.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SKILLSEEKR ">
                     <font>
-                        <Font size="48.0" />
+                        <Font size="14.0" />
                     </font>
-                </Label>
-                <Label layoutX="94.0" layoutY="105.0" text="SkillSeekr Mission and Internships " textFill="WHITE">
+                </Text>
+                <Text fill="WHITE" layoutX="417.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="/ Offer Space">
                     <font>
-                        <Font size="13.0" />
+                        <Font name="Arial Bold" size="14.0" />
                     </font>
-                </Label>
-                <ImageView fitHeight="150.0" fitWidth="144.0" layoutX="-21.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+                </Text>
+                <Text fill="WHITE" layoutX="335.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SkillSeekr Offer and Skills">
+                    <font>
+                        <Font name="Arial Bold" size="15.0" />
+                    </font>
+                </Text>
+
+                <HBox id="logout" layoutX="1147.0" layoutY="31.0" spacing="10.0">
+                    <FontAwesomeIcon fill="WHITE" glyphName="USER" layoutX="0.0" layoutY="0.0" size="19" />
+                    <Text fill="WHITE" layoutX="24.0" layoutY="0.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Logout">
+                        <font>
+                            <Font name="Arial Bold" size="18.0" />
+                        </font>
+                    </Text>
+                </HBox>
+
+            </children></Pane>
+        <VBox layoutX="30.0" layoutY="-13.0" prefHeight="637.0" prefWidth="269.0" scaleX="0.89" scaleY="0.89" scaleZ="0.91" style="-fx-background-color: #fff;" styleClass="vbox-style" AnchorPane.bottomAnchor="-1.0" AnchorPane.topAnchor="-13.0">
+            <children>
+
+                <ImageView fitHeight="174.0" fitWidth="144.0">
                     <image>
-                        <Image url="@../images/SSWhite.png" />
-                    </image></ImageView>
+                        <Image url="@../images/icon.png" />
+                    </image>
+                    <VBox.margin>
+                        <Insets bottom="3.0" left="65.0" top="20.0" />
+                    </VBox.margin>
+                </ImageView>
 
+                <HBox id="offersButton" spacing="5.0">
+                    <FontAwesomeIcon fill="#172bc270" glyphName="BRIEFCASE" size="19" wrappingWidth="13.980731010437012">
+                        <HBox.margin>
+                            <Insets left="41.0" top="13.0" />
+                        </HBox.margin></FontAwesomeIcon>
+                    <JFXButton prefHeight="43.0" prefWidth="99.0" ripplerFill="#ffffff" text="Offers">
+                        <font>
+                            <Font size="20.0" />
+                        </font>
+                        <padding>
+                            <Insets left="10.0" />
+                        </padding>
+                        <HBox.margin>
+                            <Insets left="-1.0" />
+                        </HBox.margin>
+                    </JFXButton>
+                    <VBox.margin>
+                        <Insets top="30.0" />
+                    </VBox.margin>
+                </HBox>
+                <HBox id="usersButton" spacing="10.0">
+                    <FontAwesomeIcon fill="#172bc270" glyphName="USERS" size="19" wrappingWidth="13.980731010437012">
+                        <HBox.margin>
+                            <Insets left="41.0" top="13.0" />
+                        </HBox.margin></FontAwesomeIcon>
+                    <JFXButton onMouseClicked="#handleUsersButtonClick" prefHeight="43.0" prefWidth="99.0" ripplerFill="#ffffff" text="Users">
+                        <font>
+                            <Font size="20.0" />
+                        </font>
+                        <padding>
+                            <Insets left="10.0" />
+                        </padding>
+                        <HBox.margin>
+                            <Insets left="-1.0" />
+                        </HBox.margin>
+                    </JFXButton>
+                    <VBox.margin>
+                        <Insets top="5.0" />
+                    </VBox.margin>
+                </HBox>
             </children>
-        </Pane>
-        <GridPane fx:id="pnlHost" layoutX="340.9133960667827" layoutY="173.0" prefHeight="597.0" prefWidth="1196.0" AnchorPane.bottomAnchor="-207.0" AnchorPane.leftAnchor="341.0" AnchorPane.rightAnchor="-435.0" AnchorPane.topAnchor="173.0">
-            <VBox alignment="TOP_RIGHT" prefHeight="605.0" prefWidth="1178.0" BorderPane.alignment="CENTER">
-                <children>
-
-                    <ScrollPane fx:id="scrollPane" layoutX="20.0" layoutY="20.0" prefHeight="595.0" prefWidth="1178.0">
-                        <content>
-                            <TableView fx:id="offerTableView" prefHeight="584.0" prefWidth="1253.0" styleClass="styled-table">
-                                <columns>
-                                    <TableColumn fx:id="idColumn" prefWidth="50.0" text="ID" />
-                                    <TableColumn fx:id="titleColumn" prefWidth="100.0" text="Title" />
-                                    <TableColumn fx:id="descriptionColumn" prefWidth="200.0" text="Description" />
-                                    <TableColumn fx:id="authorColumn" prefWidth="100.0" text="Author" />
-                                    <TableColumn fx:id="created_atColumn" prefWidth="100.0" text="Created_at" />
-                                    <TableColumn fx:id="motiveColumn" prefWidth="100.0" text="Motive" />
-                                    <TableColumn fx:id="typeColumn" prefWidth="100.0" text="Type" />
-                                    <TableColumn fx:id="locationColumn" prefWidth="100.0" text="Location" />
-                                    <TableColumn fx:id="statusColumn" prefWidth="100.0" text="Status" />
-                                    <TableColumn fx:id="skillsColumn" prefWidth="150.0" text="Skills" />
-                                    <TableColumn fx:id="file_nameColumn" prefWidth="100.0" text="File_name" />
-                                </columns>
-                                <contextMenu>
-                                    <ContextMenu fx:id="contextMenu">
-                                        <items>
-                                            <MenuItem text="Delete" onAction="#deleteSelectedOffer" />
-                                        </items>
-                                    </ContextMenu>
-                                </contextMenu>
-                            </TableView>
-                        </content>
-                    </ScrollPane>
-                </children>
-            </VBox>
-            <columnConstraints>
-                <ColumnConstraints />
-            </columnConstraints>
-            <rowConstraints>
-                <RowConstraints />
-            </rowConstraints>
-        </GridPane>
-        <ScrollPane layoutX="-8.0" layoutY="173.10236740419785" prefHeight="677.0" prefWidth="351.0" AnchorPane.topAnchor="173.0">
-            <content>
-                <Pane layoutX="-5.0" layoutY="163.0" prefHeight="1000.0" prefWidth="355.0" style="-fx-background-color: #2D75E8;">
-                    <VBox layoutX="24.0" prefHeight="800.0" prefWidth="301.0" spacing="10.0" styleClass="background" stylesheets="@form.css">
-                        <children>
-                            <Label text="Manage your SS Offers" textAlignment="CENTER" textFill="WHITE">
-                                <font>
-                                    <Font size="20.0" />
-                                </font>
-                                <VBox.margin>
-                                    <Insets bottom="10.0" left="20.0" top="30.0" />
-                                </VBox.margin>
-                            </Label>
-                            <TextField fx:id="title" prefHeight="30.0" prefWidth="246.0" promptText="Title">
-                            </TextField>
-                            <TextField fx:id="AuthorMail" prefHeight="30.0" prefWidth="283.0" promptText="Author Email">
-                            </TextField>
-                            <TextField fx:id="Description" layoutX="10.0" layoutY="170.0" prefHeight="88.0" prefWidth="283.0" promptText="Description" />
-                            <DatePicker fx:id="created_at" editable="false" prefHeight="30.0" prefWidth="318.0" promptText="Pick a Creation Date">
-
-                            </DatePicker>
-                            <HBox prefHeight="38.0" prefWidth="306.0">
-                                <children>
-                                    <ComboBox fx:id="Type" prefHeight="30.0" prefWidth="116.0" promptText="Type">
-                                        <HBox.margin>
-                                            <Insets right="5.0" />
-                                        </HBox.margin></ComboBox>
-                                    <ComboBox fx:id="Motive" layoutX="10.0" layoutY="10.0" prefHeight="30.0" prefWidth="110.0" promptText="Motive">
-                                        <HBox.margin>
-                                            <Insets right="5.0" />
-                                        </HBox.margin></ComboBox>
-                                    <ComboBox fx:id="Location" layoutX="10.0" layoutY="10.0" prefHeight="30.0" prefWidth="107.0" promptText="Location" />
-                                </children>
-                            </HBox>
-                            <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="255.0" spacing="15.0">
-                                <children>
-                                    <VBox prefHeight="200.0" prefWidth="100.0">
-                                        <children>
-                                            <RadioButton fx:id="Draft" mnemonicParsing="false" selected="true" text="Draft" textFill="WHITE">
-                                                <toggleGroup>
-                                                    <ToggleGroup fx:id="gender" />
-                                                </toggleGroup>
-                                                <VBox.margin>
-                                                    <Insets bottom="10.0" />
-                                                </VBox.margin>
-                                            </RadioButton>
-                                            <RadioButton fx:id="WIP" mnemonicParsing="false" text="WIP" textFill="WHITE" toggleGroup="$gender" />
-                                        </children>
-                                        <VBox.margin>
-                                            <Insets topRightBottomLeft="5.0" />
-                                        </VBox.margin>
-                                    </VBox>
-                                    <VBox layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0">
-                                        <children>
-                                            <RadioButton fx:id="Published" mnemonicParsing="false" selected="true" text="Published" textFill="WHITE">
-                                                <toggleGroup>
-                                                    <ToggleGroup fx:id="gender1" />
-                                                </toggleGroup>
-                                                <VBox.margin>
-                                                    <Insets bottom="10.0" />
-                                                </VBox.margin>
-                                            </RadioButton>
-                                            <RadioButton fx:id="Archived" mnemonicParsing="false" text="Archived" textFill="WHITE" toggleGroup="$gender1" />
-                                        </children>
-                                    </VBox>
-                                </children>
-                                <VBox.margin>
-                                    <Insets left="25.0" right="25.0" />
-                                </VBox.margin>
-                            </HBox>
-                            <HBox prefHeight="30.0" prefWidth="265.0">
-                                <children>
-                                    <VBox prefHeight="60.0" prefWidth="234.0">
-                                        <children>
-                                            <Label prefHeight="21.0" prefWidth="116.0" text="Select your Skills" textFill="#f8f7f7">
-                                                <font>
-                                                    <Font size="15.0" />
-                                                </font>
-                                            </Label>
-                                            <VBox prefHeight="200.0" prefWidth="100.0">
-                                                <children>
-                                                    <HBox prefHeight="100.0" prefWidth="200.0" />
-                                                </children>
-                                            </VBox>
-                                        </children>
-                                    </VBox>
-
-                                </children>
-                                <VBox.margin>
-                                    <Insets left="25.0" />
-                                </VBox.margin>
-                            </HBox>
-
-                        </children>
-                        <opaqueInsets>
-                            <Insets />
-                        </opaqueInsets>
-                    </VBox>
-                </Pane>
-            </content>
-        </ScrollPane>
+        </VBox>
+        <AnchorPane fx:id="contentPane" layoutX="300.0" layoutY="100.0" prefHeight="400.0" prefWidth="600.0" />
     </children>
 </AnchorPane>

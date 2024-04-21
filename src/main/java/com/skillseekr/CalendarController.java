@@ -1,16 +1,14 @@
 package com.skillseekr;
-
-import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
+import javafx.event.ActionEvent;
 import java.net.URL;
 import java.time.ZonedDateTime;
 import java.util.*;
@@ -70,7 +68,7 @@ public class CalendarController implements Initializable {
 
                 Rectangle rectangle = new Rectangle();
                 rectangle.setFill(Color.TRANSPARENT);
-                rectangle.setStroke(Color.BLACK);
+                rectangle.setStroke(Color.rgb(112, 181, 250)); // Light blue stroke color
                 rectangle.setStrokeWidth(strokeWidth);
                 double rectangleWidth = (calendarWidth / 7) - strokeWidth - spacingH;
                 rectangle.setWidth(rectangleWidth);
@@ -93,7 +91,7 @@ public class CalendarController implements Initializable {
                         }
                     }
                     if (today.getYear() == dateFocus.getYear() && today.getMonth() == dateFocus.getMonth() && today.getDayOfMonth() == currentDate) {
-                        rectangle.setStroke(Color.BLUE);
+                        rectangle.setStroke(Color.rgb(53, 134, 245)); // Darker blue stroke for today
                     }
                 }
                 calendar.getChildren().add(stackPane);
@@ -101,17 +99,17 @@ public class CalendarController implements Initializable {
         }
 
         // Add the buttons and year Text node back to the FlowPane
-        calendar.getChildren().addAll(backButton,month, year, forwardButton);
+        calendar.getChildren().addAll(backButton, month, year, forwardButton);
     }
 
     private void createCalendarActivity(List<CalendarActivity> calendarActivities, double rectangleHeight, double rectangleWidth, StackPane stackPane) {
         VBox calendarActivityBox = new VBox();
         for (int k = 0; k < calendarActivities.size(); k++) {
-            if(k >= 2) {
+            if (k >= 2) {
                 Text moreActivities = new Text("...");
                 calendarActivityBox.getChildren().add(moreActivities);
                 moreActivities.setOnMouseClicked(mouseEvent -> {
-                    //On ... click print all activities for given date
+                    // On ... click print all activities for given date
                     System.out.println(calendarActivities);
                 });
                 break;
@@ -119,23 +117,23 @@ public class CalendarController implements Initializable {
             Text text = new Text(calendarActivities.get(k).getOffer() + ", " + calendarActivities.get(k).getDate().toLocalTime());
             calendarActivityBox.getChildren().add(text);
             text.setOnMouseClicked(mouseEvent -> {
-                //On Text clicked
+                // On Text clicked
                 System.out.println(text.getText());
             });
         }
         calendarActivityBox.setTranslateY((rectangleHeight / 2) * 0.20);
         calendarActivityBox.setMaxWidth(rectangleWidth * 0.8);
         calendarActivityBox.setMaxHeight(rectangleHeight * 0.65);
-        calendarActivityBox.setStyle("-fx-background-color:GRAY");
+        calendarActivityBox.setStyle("-fx-background-color: #FFC0CB;"); // Pastel pink background
         stackPane.getChildren().add(calendarActivityBox);
     }
 
     private Map<Integer, List<CalendarActivity>> createCalendarMap(List<CalendarActivity> calendarActivities) {
         Map<Integer, List<CalendarActivity>> calendarActivityMap = new HashMap<>();
 
-        for (CalendarActivity activity: calendarActivities) {
+        for (CalendarActivity activity : calendarActivities) {
             int activityDate = activity.getDate().getDayOfMonth();
-            if(!calendarActivityMap.containsKey(activityDate)){
+            if (!calendarActivityMap.containsKey(activityDate)) {
                 calendarActivityMap.put(activityDate, List.of(activity));
             } else {
                 List<CalendarActivity> OldListByDate = calendarActivityMap.get(activityDate);
@@ -145,7 +143,7 @@ public class CalendarController implements Initializable {
                 calendarActivityMap.put(activityDate, newList);
             }
         }
-        return  calendarActivityMap;
+        return calendarActivityMap;
     }
 
     private Map<Integer, List<CalendarActivity>> getCalendarActivitiesMonth(ZonedDateTime dateFocus) {
@@ -155,12 +153,13 @@ public class CalendarController implements Initializable {
 
         Random random = new Random();
         for (int i = 0; i < 50; i++) {
-            ZonedDateTime time = ZonedDateTime.of(year, month, random.nextInt(27)+1, 16,0,0,0,dateFocus.getZone());
+            ZonedDateTime time = ZonedDateTime.of(year, month, random.nextInt(27) + 1, 16, 0, 0, 0, dateFocus.getZone());
             calendarActivities.add(new CalendarActivity(time, "SS Offer", 111111));
         }
 
         return createCalendarMap(calendarActivities);
     }
+
     @FXML
     void backOneMonth(ActionEvent event) {
         dateFocus = dateFocus.minusMonths(1);
@@ -182,6 +181,4 @@ public class CalendarController implements Initializable {
     private void updateYear() {
         year.setText(String.valueOf(dateFocus.getYear()));
     }
-
-
 }

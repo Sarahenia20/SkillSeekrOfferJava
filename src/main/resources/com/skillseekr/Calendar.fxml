@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="642.0" prefWidth="744.0" style="-fx-background-color: #f2fafc;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.skillseekr.CalendarController">
-    <Pane prefHeight="173.0" prefWidth="980.0" style="-fx-background-color: #2D75E8;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+    <Pane prefHeight="173.0" prefWidth="980.0" style="-fx-background-color: #4490de;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <children>
             <Label layoutX="130.0" layoutY="44.0" text="Calendar" textFill="WHITE">
                 <font>
@@ -31,7 +31,7 @@
                 </image></ImageView>
         </children>
     </Pane>
-    <FlowPane fx:id="calendar" alignment="TOP_CENTER" hgap="10.0" layoutX="14.0" layoutY="196.0" prefHeight="419.0" prefWidth="715.0" vgap="5.0">
+    <FlowPane fx:id="calendar" alignment="CENTER" hgap="10.0" layoutX="13.0" layoutY="183.0" prefHeight="370.0" prefWidth="717.0" vgap="5.0">
       <opaqueInsets>
          <Insets />
       </opaqueInsets>

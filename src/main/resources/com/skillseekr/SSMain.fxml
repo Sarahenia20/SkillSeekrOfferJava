@@ -12,9 +12,9 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="618.0" prefWidth="943.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"  fx:controller="com.skillseekr.MainController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="618.0" prefWidth="943.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.skillseekr.MainController">
     <children>
-        <Pane prefHeight="173.0" prefWidth="980.0" style="-fx-background-color: #2D75E8;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <Pane prefHeight="173.0" prefWidth="980.0" style="-fx-background-color: #4490de;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
                 <Label layoutX="130.0" layoutY="44.0" text="SKILLSEEKR" textFill="WHITE">
                     <font>
@@ -45,32 +45,32 @@
             <children>
                 <Button fx:id="btnUsers" contentDisplay="TOP" mnemonicParsing="false" onAction="#handleButtonClicks" prefHeight="181.0" prefWidth="242.0" stylesheets="@style.css" text="USERS">
                     <graphic>
-                        <FontAwesomeIcon fill="#2d75e8" glyphName="GROUP" size="50" />
+                        <FontAwesomeIcon fill="#4490de" glyphName="GROUP" size="50" text="" />
                     </graphic>
                 </Button>
                 <Button fx:id="btnOffers" contentDisplay="TOP" mnemonicParsing="false" onAction="#handleButtonClicks" prefHeight="181.0" prefWidth="242.0" stylesheets="@style.css" text="OFFERS" GridPane.columnIndex="1">
                     <graphic>
-                        <FontAwesomeIcon fill="#2d75e8" glyphName="CUBE" size="50" text="" />
+                        <FontAwesomeIcon fill="#4490de" glyphName="CUBE" size="50" text="" />
                     </graphic>
                 </Button>
                 <Button fx:id="btnCalendar" contentDisplay="TOP" mnemonicParsing="false" onAction="#handleButtonClicks" prefHeight="181.0" prefWidth="242.0" stylesheets="@style.css" text="CALENDAR" GridPane.columnIndex="2">
                     <graphic>
-                        <FontAwesomeIcon fill="#2d75e8" glyphName="CALENDAR" size="50" />
+                        <FontAwesomeIcon fill="#4490de" glyphName="CALENDAR" size="50" />
                     </graphic>
                 </Button>
                 <Button fx:id="btnClaims" contentDisplay="TOP" mnemonicParsing="false" onAction="#handleButtonClicks" prefHeight="181.0" prefWidth="242.0" stylesheets="@style.css" text="CLAIMS" GridPane.columnIndex="2" GridPane.rowIndex="1">
                     <graphic>
-                        <FontAwesomeIcon fill="#2d75e8" glyphName="COMMENT" size="50" />
+                        <FontAwesomeIcon fill="#4490de" glyphName="COMMENT" size="50" />
                     </graphic>
                 </Button>
                 <Button fx:id="btnProjects" contentDisplay="TOP" mnemonicParsing="false" onAction="#handleButtonClicks" prefHeight="181.0" prefWidth="242.0" stylesheets="@style.css" text="PROJECTS" GridPane.columnIndex="1" GridPane.rowIndex="1">
                     <graphic>
-                        <FontAwesomeIcon fill="#2d75e8" glyphName="EXCHANGE" size="50" />
+                        <FontAwesomeIcon fill="#4490de" glyphName="EXCHANGE" size="50" />
                     </graphic>
                 </Button>
-                <Button fx:id="btnHire" contentDisplay="TOP" mnemonicParsing="false" prefHeight="181.0" onAction="#handleButtonClicks" prefWidth="242.0" stylesheets="@style.css" text="HIRE" GridPane.rowIndex="1">
+                <Button fx:id="btnHire" contentDisplay="TOP" mnemonicParsing="false" onAction="#handleButtonClicks" prefHeight="181.0" prefWidth="242.0" stylesheets="@style.css" text="HIRE" GridPane.rowIndex="1">
                     <graphic>
-                        <FontAwesomeIcon fill="#2d75e8" glyphName="BRIEFCASE" size="50" />
+                        <FontAwesomeIcon fill="#4490de" glyphName="BRIEFCASE" size="50" />
                     </graphic>
                 </Button>
             </children>

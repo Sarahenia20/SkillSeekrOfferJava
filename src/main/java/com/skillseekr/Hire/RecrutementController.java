@@ -1,15 +1,23 @@
 package com.skillseekr.Hire;
 
 import javafx.fxml.FXML;
-import javafx.scene.layout.FlowPane;
-import javafx.scene.layout.GridPane;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.layout.AnchorPane;
+import java.io.IOException;
+
 
 public class RecrutementController {
 
     @FXML
-    private FlowPane calendar;
+    private AnchorPane contentPane;
 
     @FXML
-    private GridPane pnlHost;
-
+    private void handleUsersButtonClick() {
+        try {
+            AnchorPane showUserPane = FXMLLoader.load(getClass().getResource("/Recrutement.fxml"));
+            contentPane.getChildren().setAll(showUserPane);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
