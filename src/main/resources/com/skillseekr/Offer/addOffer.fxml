@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="696.0" prefWidth="602.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.skillseekr.Offer.addOffer">
+    <AnchorPane prefHeight="683.0" prefWidth="587.0" style="-fx-background-color: #ADD8E6;">
+
+        <!-- Main VBox -->
+        <VBox alignment="CENTER" spacing="10" stylesheets="@form.css">
+
+            <!-- Dropdown menus with labels -->
+            <VBox spacing="5" />
+
+            <VBox spacing="5" />
+
+            <VBox spacing="5" />
+
+            <!-- Buttons -->
+
+
+
+
+        </VBox>
+
+        <!-- Image -->
+        <ImageView fitHeight="125.0" fitWidth="147.0" layoutX="-7.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../images/SSBlack.png" />
+            </image>
+        </ImageView>
+
+        <!-- Form Inputs -->
+        <TextField fx:id="titleTextField" layoutX="207.0" layoutY="79.0" promptText="Title" styleClass="text-field" />
+        <TextField fx:id="authorTextField" layoutX="207.0" layoutY="122.0" promptText="Author" styleClass="text-field" />
+        <TextField fx:id="descriptionTextField" layoutX="207.0" layoutY="196.0" prefHeight="80.0" prefWidth="165.0" promptText="Description" styleClass="text-field" />
+
+        <!-- Title -->
+        <Label layoutX="226.0" layoutY="43.0" prefHeight="21.0" prefWidth="125.0" styleClass="label-title" text="Create your SS offer" />
+
+        <!-- Listview for skills -->
+        <ListView fx:id="skillsListView" layoutX="213.0" layoutY="319.0" prefHeight="213.0" prefWidth="147.0" styleClass="list-view" />
+        <Button fx:id="uploadButton" layoutX="238.0" layoutY="539.0" onAction="#handleUploadButtonAction" styleClass="pink-button" text="Upload File" />
+        <!-- Add a Label for displaying the selected file name -->
+        <Label fx:id="selectedFileLabel" layoutX="341.0" layoutY="546.0" />
+
+        <!-- Radio buttons for status -->
+        <VBox layoutX="247.0" layoutY="575.0" spacing="5">
+            <Label text="Status:" />
+            <RadioButton fx:id="draftRadioButton" styleClass="radio-button" text="Draft" />
+            <RadioButton fx:id="archivedRadioButton" styleClass="radio-button" text="Archived" />
+            <RadioButton fx:id="publishedRadioButton" styleClass="radio-button" text="Published" />
+            <RadioButton fx:id="wipRadioButton" styleClass="radio-button" text="WIP" />
+        </VBox>
+
+        <!-- ComboBoxes -->
+        <ComboBox fx:id="typeComboBox" layoutX="341.0" layoutY="283.0" prefHeight="29.0" prefWidth="90.0" promptText="Type" styleClass="combo-box" />
+        <ComboBox fx:id="motiveComboBox" layoutX="144.0" layoutY="283.0" prefHeight="29.0" prefWidth="91.0" promptText="Motive" styleClass="combo-box" />
+        <ComboBox fx:id="locationComboBox" layoutX="241.0" layoutY="283.0" prefHeight="29.0" prefWidth="95.0" promptText="Location" styleClass="combo-box" />
+        <HBox spacing="10" />
+        <Button fx:id="saveButton" layoutX="213.0" layoutY="720.0" onAction="#handleSaveButtonAction" styleClass="green-button" text="Save" />
+        <Button fx:id="resetButton" layoutX="317.0" layoutY="720.0" onAction="#handleResetButtonAction" styleClass="blue-button" text="Reset" />
+      <DatePicker fx:id="created_at" layoutX="207.0" layoutY="160.0" prefHeight="29.0" prefWidth="163.0" promptText="Publishing Date " />
+
+    </AnchorPane>
+</ScrollPane>

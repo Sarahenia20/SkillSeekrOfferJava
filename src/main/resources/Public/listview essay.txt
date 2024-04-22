@@ -1,0 +1,65 @@
+ <ListView fx:id="offerListView" prefHeight="600.0" prefWidth="800.0" stylesheets="@form.css" contextMenu="#contextMenu">
+
+                <cellFactory>
+                        <Callback type="javafx.util.Callback" fx:factory="fromLambda">
+                            <method>
+                                <signature>
+                                    <type>javafx.util.Callback</type>
+                                    <type>javafx.util.Callback</type>
+                                </signature>
+                                <lambda>
+                                    <type>javafx.util.Callback</type>
+                                    <parameter>
+                                        <type>javafx.scene.control.ListView</type>
+                                    </parameter>
+                                    <parameter>
+                                        <type>com.skillseekr.Models.Offers.Offer</type>
+                                    </parameter>
+                                    <returns>
+                                        <type>javafx.scene.control.ListCell</type>
+                                    </returns>
+                                    <body>
+                                        <ListCell>
+                                            <children>
+                                                <!-- Define table-like structure here -->
+                                                <GridPane>
+                                                    <columnConstraints>
+                                                        <ColumnConstraints hgrow="ALWAYS" />
+                                                        <ColumnConstraints hgrow="ALWAYS" />
+                                                        <!-- Add more column constraints as needed -->
+                                                    </columnConstraints>
+                                                    <Label text="ID:" GridPane.columnIndex="0" />
+                                                    <Label text="${item.id}" GridPane.columnIndex="1" />
+                                                    <Label text="Title:" GridPane.columnIndex="0" />
+                                                    <Label text="${item.title}" GridPane.columnIndex="1" />
+                                                    <Label text="Description:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                                                    <Label text="${item.description}" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                    <Label text="Author:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                                                    <Label text="${item.author}" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                    <Label text="Creation date:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                                                    <Label text="${item.created_at}" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                    <Label text="Type:" GridPane.columnIndex="0" />
+                                                    <Label text="${item.type}" GridPane.columnIndex="1" />
+                                                    <Label text="Location:" GridPane.columnIndex="0" />
+                                                    <Label text="${item.location}" GridPane.columnIndex="1" />
+                                                    <Label text="Motive:" GridPane.columnIndex="0" />
+                                                    <Label text="${item.motive}" GridPane.columnIndex="1" />
+                                                    <Label text="Status:" GridPane.columnIndex="0" />
+                                                    <Label text="${item.status}" GridPane.columnIndex="1" />
+                                                    <Label text="File Name:" GridPane.columnIndex="0" />
+                                                    <Label text="${item.file_name}" GridPane.columnIndex="1" />
+                                                    <!-- Add context menu for each row -->
+                                                </GridPane>
+                                            </children>
+                                            <ContextMenu>
+                                                <items>
+                                                    <MenuItem text="Delete Offer" onAction="#deleteSelectedOffer" />
+                                                </items>
+                                            </ContextMenu>
+                                        </ListCell>
+                                    </body>
+                                </lambda>
+                            </method>
+                        </Callback>
+                    </cellFactory>
+                </ListView>

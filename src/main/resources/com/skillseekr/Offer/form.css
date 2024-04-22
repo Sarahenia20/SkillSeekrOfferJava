@@ -1,0 +1,47 @@
+/* styles.css */
+
+/* Form title */
+.label-title {
+    -fx-font-size: 200px;
+    -fx-text-fill: #333;
+}
+
+/* Text fields */
+.text-field {
+    -fx-background-color: #f4f4f4;
+    -fx-prompt-text-fill: #999;
+    -fx-text-fill: #333;
+}
+
+/* Dropdown menus */
+.combo-box {
+    -fx-background-color: #f4f4f4;
+    -fx-text-fill: #333;
+}
+
+/* Listview */
+.list-view {
+    -fx-background-color: #f4f4f4;
+    -fx-text-fill: #333;
+}
+
+/* Radio buttons */
+.radio-button {
+    -fx-text-fill: #333;
+}
+
+/* Button styles */
+.pink-button {
+    -fx-background-color: pink;
+    -fx-text-fill: white;
+}
+
+.green-button {
+    -fx-background-color: #00b783;
+    -fx-text-fill: white;
+}
+
+.blue-button {
+    -fx-background-color: royalblue;
+    -fx-text-fill: white;
+}
