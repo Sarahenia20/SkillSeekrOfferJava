@@ -27,7 +27,7 @@ import javafx.scene.input.MouseEvent;
 import com.skillseekr.Models.User.User;
 import com.skillseekr.Services.User.ServiceUser;
 import javafx.scene.control.Button;
-import com.skillseekr.Services.IServices;
+
 
 public class showUser {
     @FXML

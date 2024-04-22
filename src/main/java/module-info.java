@@ -21,4 +21,5 @@ module com.skillseekr {
     opens com.skillseekr.Models.Hire to javafx.base;// Opening the com.skillseekr.Models.Offers package to javafx.base
 
     exports com.skillseekr;
+    exports com.skillseekr.Offer;
 }

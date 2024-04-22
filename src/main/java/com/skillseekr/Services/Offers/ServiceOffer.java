@@ -190,5 +190,22 @@ public class ServiceOffer implements IServices<Offer> {
         }
         return skills;
     }
+    public List<Skill> getAllSkills() throws SQLException {
+        List<Skill> skills = new ArrayList<>();
+        String query = "SELECT * FROM skill;"; // Assuming the table name for skills is "skills"
+
+        try (Statement statement = connection.createStatement();
+             ResultSet resultSet = statement.executeQuery(query)) {
+            while (resultSet.next()) {
+                String skillName = resultSet.getString("skill"); // Replace "skill_name" with the actual column name for skills
+                Skill skill = new Skill(skillName);
+                skills.add(skill);
+            }
+        }
+
+        return skills;
+    }
+
+
 
 }
