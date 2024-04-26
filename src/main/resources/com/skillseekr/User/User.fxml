@@ -137,7 +137,6 @@
                         <Insets top="11.0" />
                     </VBox.margin>
                 </HBox>
-
                 <HBox id="entretienButton" spacing="10.0">
                     <FontAwesomeIcon fill="#172bc270" glyphName="CALENDAR_ALT" size="19" wrappingWidth="13.980731010437012">
                         <HBox.margin>
@@ -158,8 +157,6 @@
                         <Insets top="11.0" />
                     </VBox.margin>
                 </HBox>
-
-
             </children>
         </VBox>
         <AnchorPane fx:id="contentPane" layoutX="300.0" layoutY="100.0" prefHeight="400.0" prefWidth="600.0" />

@@ -14,7 +14,7 @@ public class UserController {
     @FXML
     private void handleUsersButtonClick() {
         try {
-            AnchorPane showUserPane = FXMLLoader.load(getClass().getResource("/com/Skillseekr/User/User.fxml"));
+            AnchorPane showUserPane = FXMLLoader.load(getClass().getResource("/com/Skillseekr/User/showUser.fxml"));
             contentPane.getChildren().setAll(showUserPane);
         } catch (IOException e) {
             e.printStackTrace();

@@ -14,6 +14,8 @@ public class Offer {
     private Status status;
     private String file_name;
     private List<Skill> skills;
+    private String downloadUrl;
+
 
     // default Constructor
     public Offer() {
@@ -141,7 +143,9 @@ public class Offer {
     public void removeSkill(Skill skill) {
         this.skills.remove(skill);
     }
-
+    public String getDownloadUrl() {
+        return downloadUrl;
+    }
     @Override
     public String toString() {
         return "Offer{" +

@@ -44,7 +44,7 @@
         <!-- Form Inputs -->
         <TextField fx:id="titleTextField" layoutX="207.0" layoutY="79.0" promptText="Title" styleClass="text-field" />
         <TextField fx:id="authorTextField" layoutX="207.0" layoutY="122.0" promptText="Author" styleClass="text-field" />
-        <TextField fx:id="descriptionTextField" layoutX="207.0" layoutY="196.0" prefHeight="80.0" prefWidth="165.0" promptText="Description" styleClass="text-field" />
+        <TextField fx:id="descriptionTextField" alignment="TOP_LEFT" layoutX="207.0" layoutY="196.0" prefHeight="80.0" prefWidth="171.0" promptText="Description" styleClass="text-field" />
 
         <!-- Title -->
         <Label layoutX="226.0" layoutY="43.0" prefHeight="21.0" prefWidth="125.0" styleClass="label-title" text="Create your SS offer" />

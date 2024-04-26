@@ -7,6 +7,7 @@ module com.skillseekr {
     requires java.sql;
     requires fontawesomefx;
     requires java.desktop;
+    requires org.apache.commons.io;
 
     opens com.skillseekr to javafx.fxml; // Opening the com.skillseekr package
     opens com.skillseekr.Offer to javafx.fxml;
