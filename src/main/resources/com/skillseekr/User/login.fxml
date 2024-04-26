@@ -45,7 +45,7 @@
 
          <Pane fx:id="loginPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="624.0" prefWidth="1011.0" stylesheets="@../styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
             <children>
-               <VBox fx:id="loginVBox" layoutX="338.0" layoutY="82.0" prefHeight="437.0" prefWidth="443.0" scaleX="0.89" scaleY="0.89" scaleZ="0.91" style="-fx-background-color: #FDFDFD; -fx-background-radius: 25; -fx-alignment: CENTER;">
+               <VBox fx:id="loginVBox" layoutX="284.0" layoutY="83.0" prefHeight="437.0" prefWidth="443.0" scaleX="0.89" scaleY="0.89" scaleZ="0.91" style="-fx-background-color: #FDFDFD; -fx-background-radius: 25; -fx-alignment: CENTER;">
                   <children>
                      <Label text="Login">
                         <font>
@@ -114,7 +114,7 @@
                      </Button>
                   </children>
                </VBox>
-               <Label layoutX="406.0" layoutY="57.0" prefHeight="17.0" prefWidth="311.0" text="Optimize your career trajectory" textAlignment="CENTER">
+               <Label layoutX="365.0" layoutY="68.0" prefHeight="17.0" prefWidth="311.0" text="Optimize your career trajectory" textAlignment="CENTER">
                   <font>
                      <Font size="19.0" />
                   </font>

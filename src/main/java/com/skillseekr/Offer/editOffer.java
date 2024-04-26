@@ -131,7 +131,6 @@ public class editOffer {
         }
     }
 
-
     @FXML
     private void handleUploadButtonAction(ActionEvent event) {
         FileChooser fileChooser = new FileChooser();
@@ -153,10 +152,14 @@ public class editOffer {
         try {
             Files.copy(file.toPath(), destinationFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
             selectedFileName = destinationFile.getName();
+            // Optionally, update UI or perform other actions after saving the file
         } catch (IOException e) {
             e.printStackTrace();
+            // Optionally, display an error message if file saving fails
+            showAlert("Error", "An error occurred while saving the file.", Alert.AlertType.ERROR);
         }
     }
+
 
     @FXML
     private void handleResetButtonAction(ActionEvent event) {
@@ -176,6 +179,7 @@ public class editOffer {
 
     @FXML
     private void handleSaveButtonAction(ActionEvent event) {
+        // Get the values entered by the user
         String title = titleTextField.getText();
         String description = descriptionTextField.getText();
         String author = authorTextField.getText();
@@ -210,20 +214,23 @@ public class editOffer {
 
         String validationError = OfferInputValidation.validateAllFieldsNotNull(offerToEdit);
         if (validationError != null) {
-            showAlert("Validation Error", validationError);
+            showAlert("Validation Error", validationError, Alert.AlertType.ERROR);
             return;
         }
 
         try {
             offerService.update(offerToEdit);
-            System.out.println("Offer updated successfully!");
+            showAlert("Success", "Offer updated successfully!", Alert.AlertType.INFORMATION);
+            // Optionally, update the UI elements or close the window after successful update
         } catch (SQLException e) {
             e.printStackTrace();
+            showAlert("Error", "An error occurred while updating the offer.", Alert.AlertType.ERROR);
         }
     }
 
-    private void showAlert(String title, String message) {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
+
+    private void showAlert(String title, String message, Alert.AlertType alertType) {
+        Alert alert = new Alert(alertType);
         alert.setTitle(title);
         alert.setHeaderText(null);
         alert.setContentText(message);

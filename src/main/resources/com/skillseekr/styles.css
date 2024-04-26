@@ -77,10 +77,44 @@
     -fx-background-radius: 20 20 0 0; /* Coins arrondis en haut */
 }
 
+/* Styles for the pagination control */
 
 
-/*
-.head-background {
-    -fx-background-color: linear-gradient(to left, #795AF3, #3929E0);
+.pagination .page-button {
+    -fx-background-color: #2196f3; /* Blue background color */
+    -fx-text-fill: white; /* White text color */
 }
- */
+
+.pagination .page-button:hover {
+    -fx-background-color: #1976d2; /* Darker blue background color on hover */
+}
+
+.pagination .current-page {
+    -fx-background-color: #1976d2; /* Darker blue background color for the current page */
+    -fx-text-fill: white; /* White text color */
+}
+/* Styles for the export button */
+#exportButton {
+    -fx-background-color: #2196f3; /* Blue background color */
+    -fx-text-fill: white; /* White text color */
+}
+
+#exportButton:hover {
+    -fx-background-color: #1976d2; /* Darker blue background color on hover */
+}
+#AddOffer {
+    -fx-background-color: #2196f3; /* Blue background color */
+    -fx-text-fill: white; /* White text color */
+}
+
+#AddOffer:hover {
+    -fx-background-color: #1976d2; /* Darker blue background color on hover */
+}
+#OfferSpace {
+    -fx-background-color: #ad7df8; /* Blue background color */
+    -fx-text-fill: white; /* White text color */
+}
+
+#OfferSpace:hover {
+    -fx-background-color: #894afa; /* Darker blue background color on hover */
+}

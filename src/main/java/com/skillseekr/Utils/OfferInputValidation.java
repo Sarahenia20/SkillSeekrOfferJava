@@ -60,7 +60,7 @@ public class OfferInputValidation {
 
     // Validate createdAt: Should not be in the past
     private static boolean validateCreatedAt(Date createdAt) {
-        return createdAt.compareTo(new Date()) > 0;
+        return createdAt.compareTo(new Date()) >= 0;
     }
 
 

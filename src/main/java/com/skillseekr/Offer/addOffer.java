@@ -135,8 +135,6 @@ public class addOffer {
     }
 
 
-
-
     @FXML
     private void handleUploadButtonAction(ActionEvent event) {
         // Implement file upload functionality here
@@ -161,11 +159,10 @@ public class addOffer {
     }
 
 
-
     // Method to save the selected file to the specified directory
     private void saveFile(File file) {
         // Specify the directory where you want to save the file
-        File destinationDirectory = new File("src/main/resources/public");
+        File destinationDirectory = new File("src/main/resources/Public");
 
         // Ensure the directory exists; create it if it doesn't
         if (!destinationDirectory.exists()) {
@@ -237,7 +234,6 @@ public class addOffer {
         skillsListView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
     }
 
-
     @FXML
     private void handleSaveButtonAction(ActionEvent event) {
         // Get the values entered by the user
@@ -282,7 +278,7 @@ public class addOffer {
         String validationError = OfferInputValidation.validateAllFieldsNotNull(offer);
         if (validationError != null) {
             // Display an error message
-            showAlert("Validation Error", validationError);
+            showAlert("Validation Error", validationError, Alert.AlertType.ERROR);
             return; // Exit the method if validation fails
         }
 
@@ -290,20 +286,19 @@ public class addOffer {
             // Save the offer using the ServiceOffer class
             offerService.add(offer);
             // Show success message
-            showAlert("Success", "Offer Created successfully!");
+            showAlert("Success", "Offer Created successfully!", Alert.AlertType.INFORMATION);
         } catch (SQLException e) {
             e.printStackTrace();
             // Optionally, display an error message
+            showAlert("Error", "An error occurred while creating the offer.", Alert.AlertType.ERROR);
         }
     }
 
-
-    private void showAlert(String title, String message) {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
+    private void showAlert(String title, String message, Alert.AlertType alertType) {
+        Alert alert = new Alert(alertType);
         alert.setTitle(title);
         alert.setHeaderText(null);
         alert.setContentText(message);
         alert.showAndWait();
     }
-
 }

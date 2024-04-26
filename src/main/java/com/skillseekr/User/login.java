@@ -47,23 +47,22 @@ public class login {
     private void handleButtonClicks(javafx.event.ActionEvent mouseEvent) {
         if (mouseEvent.getSource() == loginButton) {
             // Load Main
-            loadStage("/com/Skillseekr/SSMain.fxml");
+            loadPage("/com/Skillseekr/SSMain.fxml");
         }
     }
 
-    private void loadStage(String fxml) {
+    private void loadPage(String fxml) {
         try {
             URL resourceUrl = getClass().getResource(fxml);
             if (resourceUrl == null) {
                 throw new IllegalArgumentException("FXML file not found: " + fxml);
             }
             Parent root = FXMLLoader.load(resourceUrl);
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root));
-            stage.initModality(Modality.APPLICATION_MODAL);
-            stage.show();
+            Scene scene = loginButton.getScene(); // Get the scene from any UI element in the current scene
+            scene.setRoot(root);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
 }

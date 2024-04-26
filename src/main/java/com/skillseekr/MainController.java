@@ -5,10 +5,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
+
+
 
 
 public class MainController {
@@ -35,38 +35,37 @@ public class MainController {
     private void handleButtonClicks(javafx.event.ActionEvent mouseEvent) {
         if (mouseEvent.getSource() == btnOffers) {
             // Load Offers page
-            loadStage("/com/Skillseekr/Offer/Offer.fxml");
+            loadPage("/com/Skillseekr/Offer/Offer.fxml");
         } else if ((mouseEvent.getSource() == btnHire)) {
-            loadStage("/com/Skillseekr/Hire/Recrutement.fxml");
+            loadPage("/com/Skillseekr/Hire/Recrutement.fxml");
         }
         else if ((mouseEvent.getSource() == btnCalendar)) {
-            loadStage("/com/Skillseekr/Calendar.fxml");
+            loadPage("/com/Skillseekr/Calendar.fxml");
         }
         else if ((mouseEvent.getSource() == btnClaims)) {
-            loadStage("/com/Skillseekr/Claims/Claims.fxml");
+            loadPage("/com/Skillseekr/Claims/Claims.fxml");
         }
         else if ((mouseEvent.getSource() == btnProjects)) {
-            loadStage("/com/Skillseekr/Projects/Projects.fxml");
+            loadPage("/com/Skillseekr/Projects/Projects.fxml");
         }
         else if ((mouseEvent.getSource() == btnUsers)) {
-            loadStage("/com/Skillseekr/User/User.fxml");
+            loadPage("/com/Skillseekr/User/User.fxml");
         }
     }
 
-    private void loadStage(String fxml) {
+    private void loadPage(String fxml) {
         try {
             URL resourceUrl = getClass().getResource(fxml);
             if (resourceUrl == null) {
                 throw new IllegalArgumentException("FXML file not found: " + fxml);
             }
             Parent root = FXMLLoader.load(resourceUrl);
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root));
-            stage.initModality(Modality.APPLICATION_MODAL);
-            stage.show();
+            Scene scene = btnOffers.getScene(); // Get the scene from any UI element, assuming all UI elements are in the same scene
+            scene.setRoot(root);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
 }
 
