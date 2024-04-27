@@ -31,20 +31,24 @@ import java.nio.file.StandardCopyOption;
 import javafx.scene.control.Alert;
 import java.util.ArrayList;
 import java.util.List;
-import java.time.LocalDate;
 import java.sql.SQLException;
-import java.sql.Date;
 import java.time.Instant;
-import java.time.LocalDate;
 import java.time.ZoneId;
+import javafx.scene.control.TextArea;
 
 
 public class editOffer {
 
     @FXML
+    private TextField searchTextField;
+
+    @FXML
+    private Button searchButton;
+    @FXML
     private Label selectedFileLabel;
     @FXML
     private ToggleGroup toggleGroup;
+
 
     @FXML
     private ComboBox<Location> locationComboBox;
@@ -62,7 +66,7 @@ public class editOffer {
     private TextField authorTextField;
 
     @FXML
-    private TextField descriptionTextField;
+    private TextArea descriptionTextField;
 
     @FXML
     private RadioButton draftRadioButton;
@@ -75,9 +79,11 @@ public class editOffer {
 
     @FXML
     private Button saveButton;
-
     @FXML
     private ListView<Skill> skillsListView;
+
+    private ObservableList<Skill> allSkills;
+
 
     @FXML
     private TextField titleTextField;
@@ -93,7 +99,9 @@ public class editOffer {
 
     private ServiceOffer offerService;
     private String selectedFileName;
+    private String searchInput;
     private Offer offerToEdit;
+
 
     public void initData(Offer offer) {
         offerToEdit = offer;
@@ -253,7 +261,11 @@ public class editOffer {
         archivedRadioButton.setToggleGroup(toggleGroup);
         publishedRadioButton.setToggleGroup(toggleGroup);
         wipRadioButton.setToggleGroup(toggleGroup);
+        // Set selection mode of the skills ListView to single selection
         skillsListView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+
+        // Initialize searchInput after searchTextField has been initialized
+        searchInput = searchTextField.getText().trim().toLowerCase();
     }
 
     private void populateLocationComboBox() {
@@ -278,5 +290,18 @@ public class editOffer {
         List<Skill> allSkills = offerService.getAllSkills();
         ObservableList<Skill> observableSkills = FXCollections.observableArrayList(allSkills);
         skillsListView.setItems(observableSkills);
+    }
+    @FXML
+    private void handleSearchButtonAction(ActionEvent event) {
+        // Get the text entered by the user
+        String searchInput = searchTextField.getText().trim().toLowerCase();
+
+        if (searchInput.isEmpty()) {
+            skillsListView.setItems(allSkills);
+        } else {
+            ObservableList<Skill> filteredSkills = allSkills.filtered(skill ->
+                    skill.getSkill().toLowerCase().contains(searchInput));
+            skillsListView.setItems(filteredSkills);
+        }
     }
 }

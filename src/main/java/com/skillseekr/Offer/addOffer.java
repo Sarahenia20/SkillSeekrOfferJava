@@ -29,13 +29,16 @@ import javafx.scene.control.Label;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
 import javafx.scene.control.Alert;
-import java.io.File;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
+import javafx.scene.control.TextArea;
 public class addOffer {
+    @FXML
+    private TextField searchTextField;
 
+    @FXML
+    private Button searchButton;
     @FXML
     private Label selectedFileLabel;
     @FXML
@@ -58,7 +61,7 @@ public class addOffer {
     private TextField authorTextField;
 
     @FXML
-    private TextField descriptionTextField;
+    private TextArea descriptionTextField;
 
     @FXML
     private RadioButton draftRadioButton;
@@ -71,9 +74,11 @@ public class addOffer {
 
     @FXML
     private Button saveButton;
-
     @FXML
     private ListView<Skill> skillsListView;
+
+    private ObservableList<Skill> allSkills;
+
 
     @FXML
     private TextField titleTextField;
@@ -89,7 +94,7 @@ public class addOffer {
 
     private ServiceOffer offerService;
     private String selectedFileName;
-
+    private String searchInput;
     private void populateLocationComboBox() {
         // Get all Location enum values
         Location[] locations = Location.values();
@@ -205,6 +210,8 @@ public class addOffer {
     private void initialize() {
         // Initialize ServiceOffer
         offerService = new ServiceOffer();
+        // Initialize the allSkills field with an empty ObservableList
+        this.allSkills = FXCollections.observableArrayList();
 
         // Populate ComboBoxes with enum values
         populateLocationComboBox();
@@ -214,6 +221,7 @@ public class addOffer {
         // Populate skills ListView
         try {
             populateSkillsListView();
+            allSkills = skillsListView.getItems(); // Initialize allSkills here
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -232,6 +240,9 @@ public class addOffer {
 
         // Set selection mode of the skills ListView to single selection
         skillsListView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+
+        // Initialize searchInput after searchTextField has been initialized
+        searchInput = searchTextField.getText().trim().toLowerCase();
     }
 
     @FXML
@@ -300,5 +311,18 @@ public class addOffer {
         alert.setHeaderText(null);
         alert.setContentText(message);
         alert.showAndWait();
+    }
+    @FXML
+    private void handleSearchButtonAction(ActionEvent event) {
+        // Get the text entered by the user
+        String searchInput = searchTextField.getText().trim().toLowerCase();
+
+        if (searchInput.isEmpty()) {
+            skillsListView.setItems(allSkills);
+        } else {
+            ObservableList<Skill> filteredSkills = allSkills.filtered(skill ->
+                    skill.getSkill().toLowerCase().contains(searchInput));
+            skillsListView.setItems(filteredSkills);
+        }
     }
 }

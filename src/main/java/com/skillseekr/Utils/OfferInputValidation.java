@@ -5,8 +5,8 @@ import com.skillseekr.Models.Offers.Offer;
 import com.skillseekr.Models.Offers.Skill;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
-import java.util.Date;
 import java.util.List;
+import java.util.Date;
 
 public class OfferInputValidation {
 
@@ -60,9 +60,9 @@ public class OfferInputValidation {
 
     // Validate createdAt: Should not be in the past
     private static boolean validateCreatedAt(Date createdAt) {
-        return createdAt.compareTo(new Date()) >= 0;
+        Date currentDate = new Date();
+        return !createdAt.after(currentDate);
     }
-
 
     // Validate skills: At least one skill selected
     private static boolean validateSkills(List<Skill> skills) {
