@@ -1,17 +1,24 @@
 package com.skillseekr;
+
 import javafx.fxml.FXML;
+import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
-import javafx.event.ActionEvent;
+import javafx.scene.text.TextAlignment;
+import javafx.scene.text.TextFlow;
+
 import java.net.URL;
-import java.time.ZonedDateTime;
+import java.sql.*;
+import java.time.LocalDateTime;
+import java.time.YearMonth;
 import java.util.*;
+import java.time.ZonedDateTime;
 
 public class CalendarController implements Initializable {
     @FXML
@@ -19,9 +26,6 @@ public class CalendarController implements Initializable {
 
     @FXML
     private Button forwardButton;
-
-    ZonedDateTime dateFocus;
-    ZonedDateTime today;
 
     @FXML
     private Text year;
@@ -32,153 +36,122 @@ public class CalendarController implements Initializable {
     @FXML
     private FlowPane calendar;
 
+    private ZonedDateTime dateFocus;
+    private ZonedDateTime today;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         dateFocus = ZonedDateTime.now();
         today = ZonedDateTime.now();
         drawCalendar();
+        addButtonsToCalendar();
+    }
+
+    public void addButtonsToCalendar() {
+        FlowPane buttonPane = new FlowPane();
+        buttonPane.setAlignment(Pos.CENTER);
+        buttonPane.getChildren().addAll(backButton, month, year, forwardButton);
+
+        calendar.getChildren().add(buttonPane);
     }
 
     public void drawCalendar() {
-        System.out.println("Drawing calendar for date: " + dateFocus);
-
-        // Set the year and month labels
         year.setText(String.valueOf(dateFocus.getYear()));
-        month.setText(String.valueOf(dateFocus.getMonth()));
+        month.setText(dateFocus.getMonth().toString());
 
-        double calendarWidth = calendar.getPrefWidth();
-        double calendarHeight = calendar.getPrefHeight();
-        double strokeWidth = 1;
-        double spacingH = calendar.getHgap();
-        double spacingV = calendar.getVgap();
+        calendar.getChildren().clear();
 
-        // List of activities for a given month
-        Map<Integer, List<CalendarActivity>> calendarActivityMap = getCalendarActivitiesMonth(dateFocus);
+        int daysInMonth = dateFocus.toLocalDate().lengthOfMonth();
+        int firstDayOfWeek = dateFocus.withDayOfMonth(1).getDayOfWeek().getValue();
 
-        int monthMaxDate = dateFocus.getMonth().maxLength();
-        // Check for leap year
-        if (dateFocus.getYear() % 4 != 0 && monthMaxDate == 29) {
-            monthMaxDate = 28;
-        }
-        int dateOffset = ZonedDateTime.of(dateFocus.getYear(), dateFocus.getMonthValue(), 1, 0, 0, 0, 0, dateFocus.getZone()).getDayOfWeek().getValue();
+        List<CalendarActivity> calendarActivities = getCalendarActivitiesFromDatabase(dateFocus);
 
-        for (int i = 0; i < 6; i++) {
-            for (int j = 0; j < 7; j++) {
-                StackPane stackPane = new StackPane();
+        for (int i = 1; i <= daysInMonth; i++) {
+            StackPane stackPane = new StackPane();
+            stackPane.setPrefSize(80, 80);
 
-                Rectangle rectangle = new Rectangle();
-                rectangle.setFill(Color.TRANSPARENT);
-                rectangle.setStroke(Color.rgb(112, 181, 250)); // Light blue stroke color
-                rectangle.setStrokeWidth(strokeWidth);
-                double rectangleWidth = (calendarWidth / 7) - strokeWidth - spacingH;
-                rectangle.setWidth(rectangleWidth);
-                double rectangleHeight = (calendarHeight / 6) - strokeWidth - spacingV;
-                rectangle.setHeight(rectangleHeight);
-                stackPane.getChildren().add(rectangle);
+            Rectangle rectangle = new Rectangle(80, 80, Color.TRANSPARENT);
+            rectangle.setStroke(Color.rgb(112, 181, 250));
+            rectangle.setStrokeWidth(1);
 
-                int calculatedDate = (j + 1) + (7 * i);
-                if (calculatedDate > dateOffset) {
-                    int currentDate = calculatedDate - dateOffset;
-                    if (currentDate <= monthMaxDate) {
-                        Text date = new Text(String.valueOf(currentDate));
-                        double textTranslationY = -(rectangleHeight / 2) * 0.75;
-                        date.setTranslateY(textTranslationY);
-                        stackPane.getChildren().add(date);
+            Text dateText = new Text(String.valueOf(i));
+            stackPane.getChildren().addAll(rectangle, dateText);
 
-                        List<CalendarActivity> calendarActivities = calendarActivityMap.get(currentDate);
-                        if (calendarActivities != null) {
-                            createCalendarActivity(calendarActivities, rectangleHeight, rectangleWidth, stackPane);
-                        }
-                    }
-                    if (today.getYear() == dateFocus.getYear() && today.getMonth() == dateFocus.getMonth() && today.getDayOfMonth() == currentDate) {
-                        rectangle.setStroke(Color.rgb(53, 134, 245)); // Darker blue stroke for today
-                    }
+            for (CalendarActivity activity : calendarActivities) {
+                if (activity.getOfferDate().getDayOfMonth() == i) {
+                    Rectangle card = new Rectangle(80, 80, Color.PINK);
+                    TextFlow textFlow = new TextFlow(); // Create a TextFlow container for the text
+                    textFlow.setMaxWidth(80); // Set the maximum width for truncation
+                    textFlow.setTextAlignment(TextAlignment.CENTER); // Center-align the text within the TextFlow
+
+                    Text titleText = new Text(activity.getOfferTitle());
+                    titleText.setFill(Color.BLACK);
+                    textFlow.getChildren().add(titleText);
+
+                    StackPane.setAlignment(textFlow, Pos.CENTER); // Center-align the TextFlow within the StackPane
+
+                    stackPane.getChildren().addAll(card, textFlow);
                 }
-                calendar.getChildren().add(stackPane);
+                if (today.getYear() == dateFocus.getYear() && today.getMonth() == dateFocus.getMonth() && today.getDayOfMonth() == i) {
+                    rectangle.setStroke(Color.rgb(53, 134, 245)); // Darker blue stroke for today
+                }
             }
+
+            calendar.getChildren().add(stackPane);
         }
 
-        // Add the buttons and year Text node back to the FlowPane
         calendar.getChildren().addAll(backButton, month, year, forwardButton);
     }
 
-    private void createCalendarActivity(List<CalendarActivity> calendarActivities, double rectangleHeight, double rectangleWidth, StackPane stackPane) {
-        VBox calendarActivityBox = new VBox();
-        for (int k = 0; k < calendarActivities.size(); k++) {
-            if (k >= 2) {
-                Text moreActivities = new Text("...");
-                calendarActivityBox.getChildren().add(moreActivities);
-                moreActivities.setOnMouseClicked(mouseEvent -> {
-                    // On ... click print all activities for given date
-                    System.out.println(calendarActivities);
-                });
-                break;
-            }
-            Text text = new Text(calendarActivities.get(k).getOffer() + ", " + calendarActivities.get(k).getDate().toLocalTime());
-            calendarActivityBox.getChildren().add(text);
-            text.setOnMouseClicked(mouseEvent -> {
-                // On Text clicked
-                System.out.println(text.getText());
-            });
-        }
-        calendarActivityBox.setTranslateY((rectangleHeight / 2) * 0.20);
-        calendarActivityBox.setMaxWidth(rectangleWidth * 0.8);
-        calendarActivityBox.setMaxHeight(rectangleHeight * 0.65);
-        calendarActivityBox.setStyle("-fx-background-color: #FFC0CB;"); // Pastel pink background
-        stackPane.getChildren().add(calendarActivityBox);
-    }
-
-    private Map<Integer, List<CalendarActivity>> createCalendarMap(List<CalendarActivity> calendarActivities) {
-        Map<Integer, List<CalendarActivity>> calendarActivityMap = new HashMap<>();
-
-        for (CalendarActivity activity : calendarActivities) {
-            int activityDate = activity.getDate().getDayOfMonth();
-            if (!calendarActivityMap.containsKey(activityDate)) {
-                calendarActivityMap.put(activityDate, List.of(activity));
-            } else {
-                List<CalendarActivity> OldListByDate = calendarActivityMap.get(activityDate);
-
-                List<CalendarActivity> newList = new ArrayList<>(OldListByDate);
-                newList.add(activity);
-                calendarActivityMap.put(activityDate, newList);
-            }
-        }
-        return calendarActivityMap;
-    }
-
-    private Map<Integer, List<CalendarActivity>> getCalendarActivitiesMonth(ZonedDateTime dateFocus) {
+    private List<CalendarActivity> getCalendarActivitiesFromDatabase(ZonedDateTime zonedDateTime) {
         List<CalendarActivity> calendarActivities = new ArrayList<>();
-        int year = dateFocus.getYear();
-        int month = dateFocus.getMonth().getValue();
 
-        Random random = new Random();
-        for (int i = 0; i < 50; i++) {
-            ZonedDateTime time = ZonedDateTime.of(year, month, random.nextInt(27) + 1, 16, 0, 0, 0, dateFocus.getZone());
-            calendarActivities.add(new CalendarActivity(time, "SS Offer", 111111));
+        // Connect to the database
+        try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/skillseekr", "root", "")) {
+            // Prepare the SQL statement to retrieve offer titles and created_at values for the given year and month
+            String sql = "SELECT title, created_at FROM offer WHERE YEAR(created_at) = ? AND MONTH(created_at) = ?";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setInt(1, zonedDateTime.getYear());
+            statement.setInt(2, zonedDateTime.getMonthValue());
+
+            // Execute the query
+            ResultSet resultSet = statement.executeQuery();
+
+            // Process the results and create CalendarActivity objects
+            while (resultSet.next()) {
+                String offerTitle = resultSet.getString("title");
+                LocalDateTime offerDate = resultSet.getTimestamp("created_at").toLocalDateTime();
+
+                CalendarActivity activity = new CalendarActivity(offerDate, offerTitle);
+                calendarActivities.add(activity);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
 
-        return createCalendarMap(calendarActivities);
+        return calendarActivities;
     }
 
     @FXML
     void backOneMonth(ActionEvent event) {
         dateFocus = dateFocus.minusMonths(1);
-        updateYear();
+        updateYearAndMonth();
         System.out.println("New dateFocus after going back one month: " + dateFocus);
         calendar.getChildren().clear(); // Clear the calendar before redrawing
-        drawCalendar(); // Redraw the calendar
+        drawCalendar(); // Redrawthe calendar
     }
 
     @FXML
     void forwardOneMonth(ActionEvent event) {
         dateFocus = dateFocus.plusMonths(1);
-        updateYear();
+        updateYearAndMonth();
         System.out.println("New dateFocus after going forward one month: " + dateFocus);
         calendar.getChildren().clear(); // Clear the calendar before redrawing
         drawCalendar(); // Redraw the calendar
     }
 
-    private void updateYear() {
+    private void updateYearAndMonth() {
+        month.setText(dateFocus.getMonth().toString());
         year.setText(String.valueOf(dateFocus.getYear()));
     }
 }

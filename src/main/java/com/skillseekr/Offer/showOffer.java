@@ -216,7 +216,7 @@ public class showOffer {
             serviceOffer = new ServiceOffer(); // Initialize the service
             List<Offer> offers = serviceOffer.show(); // Fetch all offers from the service
 
-            int itemsPerPage = 5; // Number of offers to display per page
+            int itemsPerPage = 7; // Number of offers to display per page
             int pageCount = (int) Math.ceil((double) offers.size() / itemsPerPage); // Calculate the number of pages
 
             pagination.setPageCount(pageCount); // Set the total number of pages
@@ -260,7 +260,7 @@ public class showOffer {
             serviceOffer = new ServiceOffer(); // Initialize the service
             List<Offer> offers = serviceOffer.show(); // Fetch all offers from the service
 
-            int itemsPerPage = 5; // Number of offers to display per page
+            int itemsPerPage = 7; // Number of offers to display per page
             int pageCount = (int) Math.ceil((double) offers.size() / itemsPerPage); // Calculate the number of pages
 
             pagination.setPageCount(pageCount); // Set the total number of pages
