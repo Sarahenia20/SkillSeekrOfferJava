@@ -8,8 +8,8 @@ module com.skillseekr {
     requires fontawesomefx;
     requires java.desktop;
     requires org.apache.commons.io;
-    requires poi;
-    requires poi.ooxml;
+    requires org.apache.poi.poi;
+    requires org.apache.poi.ooxml;
 
     opens com.skillseekr to javafx.fxml; // Opening the com.skillseekr package
     opens com.skillseekr.Offer to javafx.fxml;
