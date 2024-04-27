@@ -7,16 +7,16 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.control.TextArea?>
 
-<ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="696.0" prefWidth="602.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.skillseekr.Offer.editOffer">
-    <AnchorPane prefHeight="683.0" prefWidth="587.0" style="-fx-background-color: #ADD8E6;">
+<ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="696.0" prefWidth="602.0" stylesheets="@form.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.skillseekr.Offer.editOffer">
+    <AnchorPane prefHeight="683.0" prefWidth="587.0" style="-fx-background-color: #ADD8E6;" stylesheets="@form.css">
 
         <!-- Main VBox -->
         <VBox alignment="CENTER" spacing="10" stylesheets="@form.css">
@@ -27,12 +27,6 @@
             <VBox spacing="5" />
 
             <VBox spacing="5" />
-
-            <!-- Buttons -->
-
-
-
-
         </VBox>
 
         <!-- Image -->
@@ -43,38 +37,41 @@
         </ImageView>
 
         <!-- Form Inputs -->
-        <TextField fx:id="titleTextField" layoutX="207.0" layoutY="79.0" promptText="Title" styleClass="text-field" />
-        <TextField fx:id="authorTextField" layoutX="207.0" layoutY="122.0" promptText="Author" styleClass="text-field" />
-        <TextArea fx:id="descriptionTextField" layoutX="207.0" layoutY="196.0" prefHeight="80.0" prefWidth="171.0" promptText="Description" styleClass="text-area" />
+        <TextField fx:id="titleTextField" layoutX="158.0" layoutY="79.0" prefHeight="33.0" prefWidth="270.0" promptText="Title" styleClass="text-field" stylesheets="@form.css" />
+        <TextField fx:id="authorTextField" layoutX="160.0" layoutY="122.0" prefHeight="30.0" prefWidth="267.0" promptText="Author" styleClass="text-field" stylesheets="@form.css" />
+        <!-- Form Inputs -->
+        <!-- Form Inputs -->
+        <TextArea fx:id="descriptionTextField" layoutX="159.0" layoutY="196.0" prefHeight="105.0" prefWidth="277.0" promptText="Description" styleClass="text-area" stylesheets="@form.css" />
 
         <!-- Title -->
-        <Label layoutX="226.0" layoutY="43.0" prefHeight="21.0" prefWidth="125.0" styleClass="label-title" text="Edit your SS offer" />
+        <Label layoutX="173.0" layoutY="24.0" prefHeight="29.0" prefWidth="258.0" styleClass="label-title" stylesheets="@form.css" text="Edit your SS Offer" />
 
         <!-- Listview for skills -->
-        <TextField fx:id="searchTextField" layoutX="168.0" layoutY="337.0" prefHeight="29.0" prefWidth="200.0" promptText="Search Skills" />
-        <Button fx:id="searchButton" layoutX="370.0" layoutY="337.0" onAction="#handleSearchButtonAction" text="Search" />
-        <ListView fx:id="skillsListView" layoutX="166.0" layoutY="369.0" prefHeight="163.0" prefWidth="255.0" />
-        <Button fx:id="uploadButton" layoutX="238.0" layoutY="539.0" onAction="#handleUploadButtonAction" styleClass="pink-button" text="Upload File" />
+        <TextField fx:id="searchTextField" layoutX="166.0" layoutY="385.0" prefHeight="29.0" prefWidth="200.0" promptText="Search Skills" stylesheets="@form.css" />
+        <Button fx:id="searchButton" layoutX="370.0" layoutY="385.0" onAction="#handleSearchButtonAction" styleClass="dark-blue-button" stylesheets="@form.css" text="Search" />
+        <ListView fx:id="skillsListView" layoutX="166.0" layoutY="416.0" prefHeight="119.0" prefWidth="277.0" />
+        <Button fx:id="uploadButton" layoutX="238.0" layoutY="539.0" onAction="#handleUploadButtonAction" styleClass="dark-blue-button" stylesheets="@form.css" text="Upload File" />
         <!-- Add a Label for displaying the selected file name -->
-        <Label fx:id="selectedFileLabel" layoutX="341.0" layoutY="546.0" />
+        <Label fx:id="selectedFileLabel" layoutX="341.0" layoutY="546.0" stylesheets="@form.css" />
 
         <!-- Radio buttons for status -->
-        <VBox layoutX="247.0" layoutY="575.0" spacing="5">
-            <Label text="Status:" />
-            <RadioButton fx:id="draftRadioButton" styleClass="radio-button" text="Draft" />
-            <RadioButton fx:id="archivedRadioButton" styleClass="radio-button" text="Archived" />
-            <RadioButton fx:id="publishedRadioButton" styleClass="radio-button" text="Published" />
-            <RadioButton fx:id="wipRadioButton" styleClass="radio-button" text="WIP" />
+        <VBox layoutX="247.0" layoutY="575.0" spacing="5" stylesheets="@form.css">
+            <Label text="Status:" stylesheets="@form.css" />
+            <RadioButton fx:id="draftRadioButton" styleClass="radio-button" stylesheets="@form.css" text="Draft" />
+            <RadioButton fx:id="archivedRadioButton" styleClass="radio-button" stylesheets="@form.css" text="Archived" />
+            <RadioButton fx:id="publishedRadioButton" styleClass="radio-button" stylesheets="@form.css" text="Published" />
+            <RadioButton fx:id="wipRadioButton" styleClass="radio-button" stylesheets="@form.css" text="WIP" />
+
         </VBox>
 
         <!-- ComboBoxes -->
-        <ComboBox fx:id="typeComboBox" layoutX="341.0" layoutY="283.0" prefHeight="29.0" prefWidth="90.0" promptText="Type" styleClass="combo-box" />
-        <ComboBox fx:id="motiveComboBox" layoutX="144.0" layoutY="283.0" prefHeight="29.0" prefWidth="91.0" promptText="Motive" styleClass="combo-box" />
-        <ComboBox fx:id="locationComboBox" layoutX="241.0" layoutY="283.0" prefHeight="29.0" prefWidth="95.0" promptText="Location" styleClass="combo-box" />
-        <HBox spacing="10" />
-        <Button fx:id="saveButton" layoutX="213.0" layoutY="720.0" onAction="#handleSaveButtonAction" styleClass="green-button" text="Save" />
-        <Button fx:id="resetButton" layoutX="317.0" layoutY="720.0" onAction="#handleResetButtonAction" styleClass="blue-button" text="Reset" />
-        <DatePicker fx:id="created_at" layoutX="207.0" layoutY="160.0" prefHeight="29.0" prefWidth="163.0" promptText="Publishing Date " />
+        <ComboBox fx:id="typeComboBox" layoutX="370.0" layoutY="316.0" prefHeight="29.0" prefWidth="90.0" promptText="Type" styleClass="combo-box" stylesheets="@form.css" />
+        <ComboBox fx:id="motiveComboBox" layoutX="133.0" layoutY="316.0" prefHeight="39.0" prefWidth="104.0" promptText="Motive" styleClass="combo-box" stylesheets="@form.css" />
+        <ComboBox fx:id="locationComboBox" layoutX="245.0" layoutY="316.0" prefHeight="39.0" prefWidth="115.0" promptText="Location" styleClass="combo-box" stylesheets="@form.css" />
+        <HBox spacing="10" stylesheets="@form.css" />
+        <Button fx:id="saveButton" layoutX="213.0" layoutY="720.0" onAction="#handleSaveButtonAction" styleClass="green-button" stylesheets="@form.css" text="Save" />
+        <Button fx:id="resetButton" layoutX="317.0" layoutY="720.0" onAction="#handleResetButtonAction" styleClass="red-button" stylesheets="@form.css" text="Reset" />
+        <DatePicker fx:id="created_at" layoutX="162.0" layoutY="160.0" prefHeight="30.0" prefWidth="268.0" promptText="Publishing Date " stylesheets="@form.css" />
 
     </AnchorPane>
 </ScrollPane>
